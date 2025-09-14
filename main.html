@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimum Date Finder</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <div class="container">
+    <h2>Find the Earliest Date</h2>
+    <input type="text" id="datesInput" placeholder='Enter dates like ["2023/01/01","2023/02/02","2022/12/31"]'>
+    <button onclick="findMinDate()">Get Earliest Date</button>
+    <p id="result"></p>
+  </div>
 
+  <script src="script.js"></script>
+  <script>
+    function findMinDate() {
+      try {
+        const input = document.getElementById("datesInput").value;
+        const dates = JSON.parse(input); // Convert input to array
+        const result = minDate(dates);
+        document.getElementById("result").innerText = "Earliest Date: " + result;
+      } catch (err) {
+        document.getElementById("result").innerText = "Invalid input! Please enter an array of dates.";
+      }
+    }
+  </script>
 </body>
-
 </html>
